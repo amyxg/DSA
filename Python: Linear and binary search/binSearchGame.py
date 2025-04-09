@@ -9,7 +9,6 @@ Amy Santjer
 def binarySearch(numbers, key):
     """
     Performs a binary search on a sorted list to find a specific key.
-    Prints each step of the process to visualize how the algorithm works.
     
     Args:
         numbers (list): A sorted list of integers
@@ -24,7 +23,6 @@ def binarySearch(numbers, key):
     # of the area being searched. Starts with entire range.
     low = 0
     high = len(numbers) - 1
-    
    
     print("Starting binary search for", key, "in list:", numbers)
     print("-" * 60)
@@ -42,17 +40,16 @@ def binarySearch(numbers, key):
         # unless numbers[mid] is the key
         if (numbers[mid] < key):
             low = mid + 1
-            print(f"  {numbers[mid]} < {key}, thus will search right half..")
+            print(f"  {numbers[mid]} < {key}, so search right half")
       
         elif (numbers[mid] > key):
             high = mid - 1
-            print(f"  {numbers[mid]} > {key}, thus will search left half..")
+            print(f"  {numbers[mid]} > {key}, so search left half")
       
         else:
-            print(f"  {numbers[mid]} = {key}, key found at index {mid}!")
+            print(f"  {numbers[mid]} = {key}, key found at index {mid}")
             return mid   
-        
-        step += 1
+    
         print("-" * 60)
    
     print(f"Key {key} not found in the list")
@@ -65,9 +62,8 @@ def binarySearchDemo():
     Takes user input as a comma-separated list of numbers, sorts it,
     and performs a binary search for a specified key.
     """
-    print("\nBINARY SEARCH DEMONSTRATION")
+    print("\nBINARY SEARCH DEMO ☺")
     print("─" * 30)
-    print("This demo shows how binary search works step by step.\n")
     
     # Get input from user as a comma-separated string
     input_str = input("Enter numbers, separated by commas: ")
@@ -94,7 +90,7 @@ def binarySearchDemo():
     else:
         print(f'Result: Found {key} at index {key_index}.')
     
-    input("\nPress Enter to return to the main menu...")
+    # Removed the input() prompt that was here
 
 
 def binarySearchGame():
@@ -107,13 +103,14 @@ def binarySearchGame():
     ">" if the guess is too low
     "=" if the guess is correct
     """
-    print("\nBINARY SEARCH GUESSING GAME")
-    print("─" * 30)
+    print("\nBINARY SEARCH GUESSING GAME ☺")
+    print("=" * 30)
     print("Think of a number between 0 and 99 (WHOLE NUMBER).")
     print("I'll try to guess it in 5 or fewer attempts.")
     print('Respond with "<" if my guess is too high,')
     print('             ">" if my guess is too low,')
-    print('             "=" if my guess is correct.\n')
+    print('             "=" if my guess is correct.')
+    print()
     
     # Variables to hold the low and high boundaries of search space
     low = 0
@@ -137,7 +134,7 @@ def binarySearchGame():
         
         # Process the response
         if response == "=":
-            print(f"Great! I found your number {mid} in {guesses} guesses!")
+            print(f"WOOHOO! Your number {mid} was found in {guesses} guesses! ☺")
             break
         elif response == "<":
             # Number is lower, adjust high boundary
@@ -159,10 +156,10 @@ def binarySearchGame():
     
     # If we get here and didn't find the number, we've used all our guesses
     if guesses == max_guesses and response != "=":
-        print(f"I've used all {max_guesses} guesses and couldn't find your number.")
-        print(f"Based on your responses, your number must be between {low} and {high}.")
+        print(f"OH NO! After {max_guesses} guesses and I couldn't find your number! ☹")
+        print(f"Your number must be between {low} and {high}! ☑")
     
-    input("\nPress Enter to return to the main menu...")
+    # Removed the input() prompt that was here
 
 
 def displayMenu():
@@ -178,7 +175,7 @@ def displayMenu():
     print("1. Binary Search Demo")
     print("2. Binary Guess the Number Game")
     print("3. Quit")
-    print("-" * 50)
+    print("─" * 50)
     
     while True:
         try:
@@ -200,10 +197,12 @@ def main():
         
         if choice == 1:
             binarySearchDemo()
+            print("\nReturning to main menu...")
         elif choice == 2:
             binarySearchGame()
+            print("\nReturning to main menu...")
         elif choice == 3:
-            print("\nProgram ending....Goodbye!....")
+            print("\nEnding program...Goodbye!...")
             break
 
 
